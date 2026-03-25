@@ -1,121 +1,66 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Muryeong AI</title>
-
-<style>
-
-body{
-font-family: Arial;
-background:#0f172a;
-color:white;
-text-align:center;
-padding-top:80px;
-}
-
-h1{
-font-size:50px;
-}
-
-#chatbox{
-width:60%;
-max-width:600px;
-margin:auto;
-background:#1e293b;
-padding:20px;
-border-radius:10px;
-}
-
-#messages{
-height:250px;
-overflow-y:auto;
-text-align:left;
-margin-bottom:15px;
-}
-
-input{
-width:70%;
-padding:10px;
-border-radius:6px;
-border:none;
-}
-
-button{
-padding:10px 20px;
-font-size:16px;
-background:#22c55e;
-border:none;
-border-radius:6px;
-cursor:pointer;
-}
-
-.user{
-color:#38bdf8;
-}
-
-.ai{
-color:#22c55e;
-}
-
-</style>
+<title>Muryeong</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<h1>🤖 Muryeong AI</h1>
-<p>Talk with Muryeong!</p>
+<nav>
+<h2>Muryeong</h2>
 
-<div id="chatbox">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="ai.html">AI Lab</a></li>
+<li><a href="projects.html">Projects</a></li>
+<li><a href="knowledge.html">Knowledge</a></li>
+<li><a href="experiments.html">Experiments</a></li>
+<li><a href="tools.html">Tools</a></li>
+</ul>
+</nav>
 
-<div id="messages"></div>
+<section class="hero">
 
-<input id="userInput" placeholder="Ask something...">
-<button onclick="sendMessage()">Send</button>
+<h1>Muryeong</h1>
 
+<p>A digital lab for AI, experiments, knowledge, and projects.</p>
+
+</section>
+
+<section class="cards">
+
+<div class="card">
+<h3>AI Lab</h3>
+<p>Test AI tools and chat experiments.</p>
+<a href="ai.html">Open</a>
 </div>
 
-<script>
+<div class="card">
+<h3>Projects</h3>
+<p>Things built under Muryeong.</p>
+<a href="projects.html">View</a>
+</div>
 
-function sendMessage(){
+<div class="card">
+<h3>Knowledge</h3>
+<p>Notes and learning resources.</p>
+<a href="knowledge.html">Explore</a>
+</div>
 
-let input = document.getElementById("userInput").value;
-let messages = document.getElementById("messages");
+<div class="card">
+<h3>Experiments</h3>
+<p>Test ideas and simulations.</p>
+<a href="experiments.html">Try</a>
+</div>
 
-if(input.trim() === "") return;
+<div class="card">
+<h3>Tools</h3>
+<p>Useful mini utilities.</p>
+<a href="tools.html">Use</a>
+</div>
 
-messages.innerHTML += "<p class='user'>You: " + input + "</p>";
-
-let reply = aiResponse(input);
-
-messages.innerHTML += "<p class='ai'>Muryeong AI: " + reply + "</p>";
-
-document.getElementById("userInput").value = "";
-
-messages.scrollTop = messages.scrollHeight;
-
-}
-
-function aiResponse(text){
-
-text = text.toLowerCase();
-
-if(text.includes("hello"))
-return "Hello! 👋";
-
-if(text.includes("how are you"))
-return "I'm just code, but I'm working great!";
-
-if(text.includes("who made you"))
-return "I was created by a cool developer!";
-
-if(text.includes("ai"))
-return "AI is the future 🤖";
-
-return "Hmm... I don't know that yet.";
-
-}
-
-</script>
+</section>
 
 </body>
 </html>
