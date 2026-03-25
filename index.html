@@ -2,36 +2,120 @@
 <html>
 <head>
 <title>Muryeong AI</title>
+
 <style>
+
 body{
 font-family: Arial;
 background:#0f172a;
 color:white;
 text-align:center;
-padding-top:100px;
+padding-top:80px;
 }
+
 h1{
 font-size:50px;
 }
+
+#chatbox{
+width:60%;
+max-width:600px;
+margin:auto;
+background:#1e293b;
+padding:20px;
+border-radius:10px;
+}
+
+#messages{
+height:250px;
+overflow-y:auto;
+text-align:left;
+margin-bottom:15px;
+}
+
+input{
+width:70%;
+padding:10px;
+border-radius:6px;
+border:none;
+}
+
 button{
-padding:15px 25px;
-font-size:18px;
+padding:10px 20px;
+font-size:16px;
 background:#22c55e;
 border:none;
-border-radius:8px;
+border-radius:6px;
 cursor:pointer;
 }
+
+.user{
+color:#38bdf8;
+}
+
+.ai{
+color:#22c55e;
+}
+
 </style>
 </head>
 
 <body>
 
 <h1>🤖 Muryeong AI</h1>
-<p>Hello there!</p>
+<p>Talk with Muryeong!</p>
 
-<button onclick="alert('AI coming soon!')">
-Try AI
-</button>
+<div id="chatbox">
+
+<div id="messages"></div>
+
+<input id="userInput" placeholder="Ask something...">
+<button onclick="sendMessage()">Send</button>
+
+</div>
+
+<script>
+
+function sendMessage(){
+
+let input = document.getElementById("userInput").value;
+let messages = document.getElementById("messages");
+
+if(input.trim() === "") return;
+
+messages.innerHTML += "<p class='user'>You: " + input + "</p>";
+
+let reply = aiResponse(input);
+
+messages.innerHTML += "<p class='ai'>Muryeong AI: " + reply + "</p>";
+
+document.getElementById("userInput").value = "";
+
+messages.scrollTop = messages.scrollHeight;
+
+}
+
+function aiResponse(text){
+
+text = text.toLowerCase();
+
+if(text.includes("hello"))
+return "Hello! 👋";
+
+if(text.includes("how are you"))
+return "I'm just code, but I'm working great!";
+
+if(text.includes("who made you"))
+return "I was created by a cool developer!";
+
+if(text.includes("ai"))
+return "AI is the future 🤖";
+
+return "Hmm... I don't know that yet.";
+
+}
+
+</script>
 
 </body>
 </html>
